@@ -1,0 +1,8 @@
+nav.mainNav {
+  display: flex;
+  justify-content: center;
+}
+
+ul.nav-list {
+  border: dotted 1px green;
+}

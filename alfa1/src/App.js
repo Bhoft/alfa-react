@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 // import './App.css';
+import {fruitNames, fruits, mixFruitnames, mixFruits } from "./exampleData"
 
 function App() {
 
@@ -43,6 +44,23 @@ function App() {
   // man kann auch auslassen 
   // const [car,, suv] = vehicles;
 
+  const mixFruitnamesArr =  fruitNames.reduce((name1, name2) => mixFruitnames(name1, name2))
+
+  // console.log(fruits);
+  // const mixedFruits =  fruits.reduce((fruit1, fruit2) => 
+  //   // console.log(['friuit 1', fruit1]);
+  //   // console.log(['friuit 1', fruit2]);
+  //   mixFruits(fruit1, fruit2)
+  // )
+
+  const mixedFruits =  fruits.reduce((fruit1, fruit2) => {
+  // console.log(['friuit 1', fruit1]);
+  // console.log(['friuit 1', fruit2]);
+    return mixFruits(fruit1, fruit2);
+  })
+  
+  console.log(mixedFruits);
+
 
   return (
     <div>
@@ -75,6 +93,32 @@ function App() {
       <ol>
       {myNewNumbers.map(numberHandler)}
       </ol>
+
+
+      <p>
+        {mixFruitnamesArr}
+      </p>
+      { mixFruitnamesArr.indexOf('banana') > -1 ? (<p>Banane ist drin</p>) : (<p>Keine Banane enthalten</p>)
+
+      }
+
+      <p>
+        {fruits.map(mixFruits)}
+      </p>
+
+      {/* todo: mix fruits and render the resulting color... */}
+      {/* {mixedFruits.map(
+
+        (fruit, index)=> {
+          return (
+          <li key = {index}>
+            <span>{index}</span>
+            <span>{fruit.name}</span>
+            <span>{fruit.color}</span>
+          </li>
+          )
+        }
+      )} */}
     </div>
   );
 
